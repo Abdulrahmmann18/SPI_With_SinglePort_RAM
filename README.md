@@ -6,7 +6,7 @@ the project is about the implementaion of the SPI slave (not standard) and inter
 # Project phases
 The project passes through Four main phases :- 
 ### Write Address Phase 
-  - Master will start the write command by sending the write address value, x_data [9:8] = din[9:8] = 2'b00.
+  - Master will start the write command by sending the write address value, rx_data [9:8] = din[9:8] = 2'b00.
   - SS_n = 0 to tell the SPI Slave that the master will begin communication.
   - SPI Slave check the first received bit on MOSI port 'O' which is a control bit to let the slave determine which operation will take place "write in this case". SPI Slave then expects to receive 10 more bits, the first 2 bits are "00" on two clock cycles and then the wr_address will be sent on 8 more clock cycles.
   - Now the data is converted from serial "MOSI" to parallel after writing the rx_data[9:0] bus.
